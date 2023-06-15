@@ -111,7 +111,7 @@ function getLocation() {
 function showPosition(position) {
 
   var apiKey = '6717d328f8d34cc096d74600231206';
-  var url = 'http://api.weatherapi.com/v1';
+  var url = 'https://api.weatherapi.com/v1';
 
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
