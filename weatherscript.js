@@ -136,7 +136,21 @@ var DataCallback = function (result, error) {
     if (result !== null) {
         console.log("Successful");
     } else if (error !== null) {
-        showError(error);
+        switch(error.code) 
+        {
+          case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+          case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+          case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+          case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+        }
         console.log("Something went wrong with your first API call.\n" + "Here's some debug information:\n" + PlayFab.GenerateErrorReport(error));
     }
 }
