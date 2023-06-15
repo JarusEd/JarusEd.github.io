@@ -6,7 +6,7 @@ var email = "";
 var password = "";
 var username = "";
 
-// The function for login form.
+// Below function takes care of logging users as players into playfab. 
 
 function loginfunc() {   
 
@@ -42,7 +42,7 @@ function loginfunc() {
             });
         }
 
-        DoExampleLoginWithEmailAddress(){ // This function is for calling "LoginWithEmailAddress" API from PlayFab
+        DoExampleLoginWithEmailAddress(){ 
     
             PlayFab.settings.titleId = document.getElementById("titleId").value; 
                     
@@ -52,7 +52,7 @@ function loginfunc() {
                 TitleId: PlayFab.settings.titleId
             };
                     
-            PlayFabClientSDK.LoginWithEmailAddress(loginRequest, LoginCallback);  // PlayFabAPI request for login by email and password
+            PlayFabClientSDK.LoginWithEmailAddress(loginRequest, LoginCallback);  // Players details are sent to Playfab for logging in.
         }
     }
 
@@ -64,7 +64,7 @@ function loginfunc() {
             localStorage.setItem('SessionTicket', result.data.SessionTicket);
             localStorage.setItem('PlayFabId', result.data.PlayFabId);
 
-            // Following code block switches the visibility of the pages
+            // Following code block switches the visibility of the pages from login screen to home screen
             document.querySelector(".center2").style.display = "block"; 
             document.querySelector(".center1").style.display = "none";
 
@@ -72,6 +72,8 @@ function loginfunc() {
             console.log(error.errorCode);
             if(error.errorCode == 1001 && username != "")
             {
+                // If the players details are not present, they are registered as new players into playfab
+                
                 var registerRequest = { Email: email, Password: password, Username: username };
                 PlayFabClientSDK.RegisterPlayFabUser(registerRequest, OnRegisterSuccess, OnRegisterFailure);
             }
@@ -100,6 +102,9 @@ function loginfunc() {
 
 var x = document.getElementById("tempDet");
 
+// The following function determines the location of the player, subsequently
+// using those coordinates (latitude and longitude) to determine the weather
+
 function getLocation() {
     console.log(navigator.geolocation.getCurrentPosition);
     if (navigator.geolocation) {
@@ -121,9 +126,7 @@ function errorloc(err) {
 }
 
 const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
+    timeout: 5000
 };
 
 function showPosition(position) {
@@ -172,16 +175,14 @@ var DataCallback = function (result, error) {
             x.innerHTML = "An unknown error occurred."
             break;
         }
-        console.log("Something went wrong with your first API call.\n" + "Here's some debug information:\n" + PlayFab.GenerateErrorReport(error));
+        console.log("Something went wrong with the weather determination.\n" + "Here's some debug information:\n" + PlayFab.GenerateErrorReport(error));
     }
 }
 
-function getSessionTicket(){
-    var value = localStorage.getItem('SessionTicket');
-    console.log(value);
-    var output = document.getElementById('histDet');
-    output.innerText = value;
-}
+// Since PlayFab sessionticket is valid for 24 hours at a time, ending a session would necessarily mean
+// waiting for that duration. Hence, as a precautionary measure and a way to simulate logging out, the 
+// local storage of session ticket is removed, so, a user cannot login just by jumping into the weather
+// determination page. (https://community.playfab.com/questions/23868/what-is-a-session-ticket-security-question.html)
 
 function loggingout(){
     location.reload("weather.html");
@@ -189,6 +190,9 @@ function loggingout(){
     document.querySelector(".center2").style.display = "none";
     document.querySelector(".center1").style.display = "block";
 }
+
+// This retrieves the players data from playfab, taking in all the stored values in the Player Data (Title)
+// location.
 
 function getDataHistory(){
     var DataHistRequest = {
@@ -221,6 +225,8 @@ var DataHistCallback = function (result, error) {
         console.log("Something went wrong with your first API call.\n" + "Here's some debug information:\n" + PlayFab.GenerateErrorReport(error));
     }
 }
+
+// This code block showcases the "Developed by:" section to the user.
 
 function getDeveloper(){
     var devDisp = document.getElementById("devDisplay");
