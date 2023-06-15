@@ -223,21 +223,6 @@ var DataHistCallback = function (result, error) {
 }
 
 function getDeveloper(){
-    var DevRequest = {
-        Keys: ["Credentials"],
-        PlayFabId: localStorage.getItem('PlayFabId')
-    }
-
-    PlayFabClientSDK.GetUserReadOnlyData(DevRequest, DevCallback);
-}
-
-var DevCallback = function (result, error) {
-    if (result !== null) {
-
-        var devDisp = document.getElementById("devDisplay");
-        devDisp.innerHTML = result.data.Data.Credentials.Value;
-
-    } else if (error !== null) {
-        console.log("Something went wrong with your first API call.\n" + "Here's some debug information:\n" + PlayFab.GenerateErrorReport(error));
-    }
+    var devDisp = document.getElementById("devDisplay");
+    devDisp.innerHTML = suraj.de31@gmail.com [Suraj De];
 }
