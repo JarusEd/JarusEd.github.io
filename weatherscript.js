@@ -136,6 +136,7 @@ var DataCallback = function (result, error) {
     if (result !== null) {
         console.log("Successful");
     } else if (error !== null) {
+        showError(error);
         console.log("Something went wrong with your first API call.\n" + "Here's some debug information:\n" + PlayFab.GenerateErrorReport(error));
     }
 }
