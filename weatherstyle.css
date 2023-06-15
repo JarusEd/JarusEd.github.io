@@ -1,0 +1,231 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS';
+    height: 100vh;
+    /*background: linear-gradient(22.5deg, white, green);*/
+    background-image: url('backimage.jpeg');
+    overflow: hidden;
+}
+
+.center1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: -16px 16px 20px 0 rgba(0, 0, 0, 0.2), 16px -16px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.center1 h2{
+    text-align: center;
+    padding: 0 0 20px 0;
+    font-size: 30px;
+    color: green;
+    border-bottom: 1px solid silver;
+}
+
+.center1 form{
+    padding: 0 30px 40px;
+    box-sizing: border-box;
+}
+
+form .txt_fld{
+    position: relative;
+    margin: 30px 0;
+}
+
+.txt_fld input{
+    width: 70%;
+    margin-left: 28%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 10px;
+    background: #cfcfcfe4;
+    outline: none;
+}
+
+.txt_fld label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.txt_fld h6{
+    position: relative;
+    text-align: center;
+    left: 20%;
+    width: 90%;
+    transform: translateY(-40%);
+}
+
+#username{
+    transform: translateY(40%);
+}
+
+input[type="submit"]{
+    position: relative;
+    width: 70%;
+    height: 50px;
+    border-radius: 25px;
+    left: 20%;
+    background-color: green;
+    font-family: 'Trebuchet MS';
+    color: white;
+    font-size: 20px;
+}
+  
+input[type="submit"]:hover{
+    border-color: black;
+    transition: .5s;
+}
+
+#login:hover{
+    color: black;
+    background-color: greenyellow;
+    box-shadow: 0 0 10px black;
+}
+
+#resultOutput{
+    font-family: 'Trebuchet MS';
+    position: absolute;
+    padding: 3px;
+    top: 105%;
+    left: 0%;
+    width: 100%;
+    font-size: small;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px black;
+    background-color: beige;
+    resize: none;
+}
+
+/* functional elements css*/
+
+.center2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: -16px 16px 20px 0 rgba(0, 0, 0, 0.2), 16px -16px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.center2 h2{
+    text-align: center;
+    padding-bottom: 5%;
+    font-size: 30px;
+    color: green;
+    border-bottom: 1px solid silver;
+}
+
+.locDetect{
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.center2 #locDeter{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: green;
+}
+
+.center2 #locDeter:hover{
+    background-color: greenyellow;
+    box-shadow: 0 0 10px black;
+}
+
+#tempDet{
+    position: relative;
+    left: 10%;
+    padding: 0px;
+    height: 80px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: "Tebuchet MS";
+    resize: none;
+}
+
+/* history detection */
+
+.histDetect{
+    text-align: center;
+    padding: 25px;
+}
+
+.center2 #histDeter{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: green;
+}
+
+.center2 #histDeter:hover{
+    background-color: greenyellow;
+    box-shadow: 0 0 10px black;
+}
+
+#histDet{
+    position: relative;
+    left: 37px;
+    height: 180px;
+    text-align: center;
+    font-size: small;
+    width: 80%;
+    border-radius: 10px;
+    font-family: "Tebuchet MS";
+    resize: none;
+}
+
+/* developer detection */
+
+.devDetect{
+    text-align: center;
+    padding: 15px;
+}
+
+.center2 #devName{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: green;
+}
+
+.center2 #devName:hover{
+    background-color: greenyellow;
+    box-shadow: 0 0 10px black;
+}
+
+#devDisplay{
+    position: relative;
+    left: 10%;
+    height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: "Tebuchet MS";
+    resize: none;
+}
+
+#logout{
+    position: relative;
+    left: 17%;
+}
+
+#logout:hover{
+    color: black;
+    background-color: greenyellow;
+    box-shadow: 0 0 10px black;
+}
